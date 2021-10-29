@@ -8,6 +8,7 @@ const Users = () => {
     let indexToDelete = users.findIndex((user) => {
       return user._id === userId.id;
     });
+    console.log("handleDelete", handleDelete);
 
     let usersUpdated = users
       .slice(0, indexToDelete)
