@@ -1,6 +1,7 @@
-import React from "react";
-import Qualitie from "./qualitie";
-import BookMark from "./bookmark";
+import React from 'react'
+import Qualitie from './qualitie'
+import BookMark from './bookmark'
+import PropTypes from 'prop-types'
 
 const User = ({
   _id,
@@ -30,7 +31,28 @@ const User = ({
         </button>
       </td>
     </tr>
-  );
-};
+  )
+}
 
-export default User;
+User.propTypes = {
+  _id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  status: PropTypes.bool,
+  profession: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }),
+  qualities: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired
+    })
+  ),
+  completedMeetings: PropTypes.number.isRequired,
+  rate: PropTypes.number.isRequired,
+  onDelete: PropTypes.func.isRequred,
+  onToggle: PropTypes.func.isRequred
+}
+
+export default User

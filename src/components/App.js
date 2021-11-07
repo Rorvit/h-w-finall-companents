@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Users from "./users";
-import SearchStatus from "./searchStatus";
-import API from "../API";
+import React, { useState } from 'react'
+import Users from './users'
+import SearchStatus from './searchStatus'
+import API from '../API'
 
 const App = () => {
-  const [users, setUsers] = useState(API.users.fetchAll());
-  const [status, setStatus] = useState(false);
+  const [users, setUsers] = useState(API.users.fetchAll())
+  const [status, setStatus] = useState(false)
   const handleDelete = (userId) => {
-    console.log(userId);
-    setUsers(users.filter((user) => user._id !== userId));
-  };
+    console.log(userId)
+    setUsers(users.filter((user) => user._id !== userId))
+  }
   const handleToggleBookMark = (id) => {
-    console.log(id);
-    status === false ? setStatus(true) : setStatus(false);
-  };
+    console.log(id)
+    status === false ? setStatus(true) : setStatus(false)
+  }
   return (
     <div>
       {users.length > 0 ? (
@@ -45,7 +45,7 @@ const App = () => {
         </h1>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
